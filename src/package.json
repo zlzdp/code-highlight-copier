@@ -1,0 +1,15 @@
+{
+  "name": "code-highlight-copier",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "codemirror": "^5.9.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "xiaodengzi",
+  "license": "ISC"
+}
