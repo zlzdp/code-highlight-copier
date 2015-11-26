@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+    <title>Code highlight Copier | 文本代码拷贝为高亮富文本</title>
+    <link rel="stylesheet" href="node_modules/codemirror/lib/codemirror.css">
+    <link rel="stylesheet" href="node_modules/codemirror/theme/monokai.css">
+</head>
+
+<body>
+    <div>
+        <textarea id="code-panel" class="CodeMirror cm-s-monokai" autofocus>
+<foobar>
+    <blah>Enter your xml here and press the button below to display it as highlighted by the CodeMirror XML mode</blah>
+</foobar>
+        </textarea>
+        <br>
+        <button onclick="doHighlight();">Highlight!</button>
+        <button data-clipboard-target="#output-panel" id="btn-copy">Copy Highlight Code</button>
+        <!--  cm-s-default -->
+        <!-- cm-s-monokai -->
+        <pre id="output-panel" class="CodeMirror cm-s-monokai"></pre>
+    </div>
+    <script src="node_modules/codemirror/lib/codemirror.js"></script>
+    <script src="node_modules/codemirror/addon/runmode/runmode.js"></script>
+    <script src="node_modules/codemirror/mode/xml/xml.js"></script>
+    <script src="node_modules/codemirror/keymap/sublime.js"></script>
+    <script src="node_modules/clipboard/dist/clipboard.js"></script>
+    <script>
+    // new function () {
+
+
+    var editor = CodeMirror.fromTextArea(document.getElementById("code-panel"), {
+        // value: value,
+        lineNumbers: true,
+        mode: "application/xml",
+        keyMap: "sublime",
+        // autoCloseBrackets: true,
+        // matchBrackets: true,
+        // showCursorWhenSelecting: true,
+        // tabSize: 2,
+        theme: "monokai"
+    });
+
+    function doHighlight() {
+        CodeMirror.runMode(
+            editor.getValue(),
+            "application/xml",
+            document.getElementById("output-panel"));
+    }
+
+    new Clipboard('#btn-copy')
+        // }
+    </script>
+</body>
+
+</html>

@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
+    "clipboard": "^1.5.5",
     "codemirror": "^5.9.0"
   },
   "devDependencies": {},
