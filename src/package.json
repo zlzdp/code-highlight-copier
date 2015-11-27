@@ -5,7 +5,8 @@
   "main": "index.js",
   "dependencies": {
     "clipboard": "^1.5.5",
-    "codemirror": "^5.9.0"
+    "codemirror": "^5.9.0",
+    "select2": "^4.0.0"
   },
   "devDependencies": {},
   "scripts": {

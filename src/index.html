@@ -11,13 +11,8 @@
 
 <body>
     <div>
-        <textarea id="code-panel" class="CodeMirror cm-s-monokai" autofocus>
-<foobar>
-    <blah>Enter your xml here and press the button below to display it as highlighted by the CodeMirror XML mode</blah>
-</foobar>
-        </textarea>
+        <textarea id="code-panel" class="CodeMirror cm-s-monokai" autofocus></textarea>
         <br>
-        <button onclick="doHighlight();">Highlight!</button>
         <button data-clipboard-target="#output-panel" id="btn-copy">Copy Highlight Code</button>
         <!--  cm-s-default -->
         <!-- cm-s-monokai -->
@@ -25,35 +20,26 @@
     </div>
     <script src="node_modules/codemirror/lib/codemirror.js"></script>
     <script src="node_modules/codemirror/addon/runmode/runmode.js"></script>
+    <!-- mode -->
+    <script src="node_modules/codemirror/mode/htmlembedded/htmlembedded.js"></script>
+    <script src="node_modules/codemirror/mode/javascript/javascript.js"></script>
+    <script src="node_modules/codemirror/mode/css/css.js"></script>
+    <script src="node_modules/codemirror/mode/sass/sass.js"></script>
+    <script src="node_modules/codemirror/mode/jade/jade.js"></script>
+    <script src="node_modules/codemirror/mode/markdown/markdown.js"></script>
+    <script src="node_modules/codemirror/mode/php/php.js"></script>
+    <script src="node_modules/codemirror/mode/python/python.js"></script>
+    <script src="node_modules/codemirror/mode/ruby/ruby.js"></script>
+    <script src="node_modules/codemirror/mode/jade/jade.js"></script>
+    <script src="node_modules/codemirror/mode/sql/sql.js"></script>
+    <script src="node_modules/codemirror/mode/swift/swift.js"></script>
     <script src="node_modules/codemirror/mode/xml/xml.js"></script>
+    <script src="node_modules/codemirror/mode/lua/lua.js"></script>
+    <!-- /mode -->
+
     <script src="node_modules/codemirror/keymap/sublime.js"></script>
     <script src="node_modules/clipboard/dist/clipboard.js"></script>
-    <script>
-    // new function () {
-
-
-    var editor = CodeMirror.fromTextArea(document.getElementById("code-panel"), {
-        // value: value,
-        lineNumbers: true,
-        mode: "application/xml",
-        keyMap: "sublime",
-        // autoCloseBrackets: true,
-        // matchBrackets: true,
-        // showCursorWhenSelecting: true,
-        // tabSize: 2,
-        theme: "monokai"
-    });
-
-    function doHighlight() {
-        CodeMirror.runMode(
-            editor.getValue(),
-            "application/xml",
-            document.getElementById("output-panel"));
-    }
-
-    new Clipboard('#btn-copy')
-        // }
-    </script>
+    <script src="js/app/app.js"></script>
 </body>
 
 </html>
