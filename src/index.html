@@ -16,6 +16,12 @@
         </textarea>
         <br>
         <button data-clipboard-target="#output-panel" id="btn-copy">Copy Highlight Code</button>
+        <select data-provide="select2">
+            <option value="text/html">HTML</option>
+            <option value="javascript">javascript</option>
+            <option value="CSS">CSS</option>
+        </select>
+
         <!--  cm-s-default -->
         <!-- cm-s-monokai -->
         <pre id="output-panel" class="CodeMirror cm-s-monokai"></pre>
@@ -41,6 +47,14 @@
 
     <script src="node_modules/codemirror/keymap/sublime.js"></script>
     <script src="node_modules/clipboard/dist/clipboard.js"></script>
+
+    
+    <script src="node_modules/jquery/dist/jquery.js"></script>
+
+    <!-- select2 -->
+    <link rel="stylesheet" href="node_modules/select2/dist/css/select2.css">
+    <script src="node_modules/select2/dist/js/select2.js"></script>
+
     <script src="js/app/app.js"></script>
 </body>
 

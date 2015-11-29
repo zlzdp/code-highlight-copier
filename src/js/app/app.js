@@ -31,5 +31,6 @@ new function(window, document, CodeMirror, Clipboard) {
 
     new Clipboard('#btn-copy')
 
+    $('select[data-provide="select2"]').select2()
 
 }(window, document, CodeMirror, Clipboard)
