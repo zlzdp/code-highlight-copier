@@ -1,20 +1,11 @@
 new function(window, document, CodeMirror, Clipboard) {
 
-
-    var sl = function(selector) {
-        return document.getElementById(selector)
-    }
-
-
-    var editor = CodeMirror.fromTextArea(sl("code-panel"), {
+    var lang = 'text/html'
+    var editor = CodeMirror.fromTextArea($("#code-panel")[0], {
         // value: value,
         lineNumbers: true,
         mode: "text/html",
         keyMap: "sublime",
-        // autoCloseBrackets: true,
-        // matchBrackets: true,
-        // showCursorWhenSelecting: true,
-        // tabSize: 2,
         theme: "monokai"
     });
 
@@ -22,8 +13,8 @@ new function(window, document, CodeMirror, Clipboard) {
     function doHighLight() {
         CodeMirror.runMode(
             editor.getValue(),
-            "text/html",
-            sl("output-panel"))
+            lang,
+            $("#output-panel")[0])
     }
     editor.on('change', doHighLight)
     doHighLight()
@@ -31,6 +22,16 @@ new function(window, document, CodeMirror, Clipboard) {
 
     new Clipboard('#btn-copy')
 
-    $('select[data-provide="select2"]').select2()
+    $('select[data-provide="select2"]')
+        .change(function() {
+            lang = $(this).val()
+            doHighLight()
+        })
+        .select2()
+
+    // 可能是 代码编辑器也监听了按钮，导致了监听键盘事件不正常执行
+    $('body,#code-panel').bind('keydown', 'Alt+l', function (e) {
+        // console.log(1)
+    })
 
 }(window, document, CodeMirror, Clipboard)
