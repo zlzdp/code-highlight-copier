@@ -16,20 +16,21 @@ fis.config.merge({
         path: [{
             reg: /\/(map.json)/i,
             release: false
-        }, 
-        {
+        }, {
             reg: /\/(node_modules)\/(codemirror)\/.*/i,
-            release : '/$&'
-        }, 
-        {
-            reg: /\/(node_modules)\/(\S|\b)+\/(dist|build)\/.*/i,
-             release : '/$&'
-        }, 
-        {
+            release: '/$&'
+        }, {
+            // node_modules 目录下，还有 node_modules 的，哪些深沉目录就不要输出了
+            reg: /\/(node_modules)\/([^\\\/<>?:\|\*"])+\/(node_modules)\/.*/i,
+            release: false
+        }, {
+            // 仅输出 node_modules/xxx/dist|build 目录，其他的不需要
+            reg: /\/(node_modules)\/([^\\\/<>?:\|\*"])+\/(dist|build)\/.*/i,
+            release: '/$&'
+        }, {
             reg: /\/(node_modules)\/.*/i,
             release: false
-        }
-        ]
+        }, ]
     }
 });
 
