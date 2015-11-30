@@ -21,7 +21,7 @@ fis.config.merge({
             reg: /\/(node_modules)\/([^\\\/<>?:\|\*"])+\/(node_modules|test)\/.*/i,
             release: false
         }, {
-            reg: /\/(node_modules)\/(codemirror|jquery.hotkeys)\/.*/i,
+            reg: /\/(node_modules)\/(codemirror|jquery\.hotkeys)\/.*/i,
             release: '/$&'
         }, {
             // 仅输出 node_modules/xxx/dist|build 目录，其他的不需要
