@@ -42,15 +42,32 @@ new function(window, document, CodeMirror, Clipboard) {
     // 可能是代码编辑器也监听了按钮，导致监听键盘事件不正常执行
     // document 与 editor 分开监听事件
     $(document).bind('keyup', 'Alt+l', function(e) {
-        // e.isDefaultPrevented()
-        langSelect.select2('open')
-    })
-    editor.on('keyup', function(codemirror, e) {
-        if (e.altKey && e.keyCode === 76) {
+            // e.isDefaultPrevented()
             langSelect.select2('open')
+        })
+        .bind('keyup', 'Alt+c', function(e) {
+            $('#btn-copy').click()
+        })
+        .bind('keyup', 'Alt+i', function(e) {
+            setTimeout(function() {
+                editor.focus()
+            }, 15)
+        })
+    editor.on('keyup', function(codemirror, e) {
+        if (e.altKey) {
+            switch (e.keyCode) {
+                case 76:
+                    // alt + l //change lang
+                    langSelect.select2('open')
+                    break
+                case 67:
+                    // alt + c // copy
+                    $('#btn-copy').click()
+                    break
+            }
+
         }
     })
-
 
     ! function main() {
         setTimeout(function() {
