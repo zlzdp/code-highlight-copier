@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+    <title>Code highlight Copier | 文本代码拷贝为高亮富文本</title>
+    <link rel="stylesheet" href="/node_modules/codemirror/lib/codemirror.css">
+    <link rel="stylesheet" href="/node_modules/codemirror/theme/monokai.css">
+    <link rel="stylesheet" href="/css/app/app.css">
+</head>
+
+<body>
+    <div>
+        <textarea id="code-panel" class="CodeMirror cm-s-monokai">
+<h1>Talk is cheap, show me the code. (Linus Torvalds)</h1>
+Here is Editor, under the editor ,there are the rich text code </textarea>
+        <br>
+        
+        &nbsp;programming language:
+        <select data-provide="select2">
+            <option value="text/html">HTML</option>
+            <option value="text/javascript">JavaScript</option>
+            <option value="text/x-gss">CSS</option>
+            <option value="text/x-sass">Sass</option>
+            <option value="text/x-jade">Jade</option>
+            <option value="text/x-markdown">Markdown</option>
+            <option value="text/x-php">PHP</option>
+            <option value="text/x-java">Java</option>
+            <option value="text/x-c++src">C++</option>
+            <option value="text/x-objectivec">Objective-C</option>
+            <option value="text/x-csharp">C#</option>
+            <option value="text/x-cython">Python</option>
+            <option value="text/x-ruby">Ruby</option>
+            <option value="text/x-sql">SQL</option>
+            <option value="text/x-swift">Swift</option>
+            <option value="text/xml">XML</option>
+            <option value="text/x-lua">Lua</option>
+        </select>(Alt+l)
+
+        &nbsp;&nbsp;
+        <button data-clipboard-target="#output-panel" id="btn-copy">Copy Highlight Code</button>(Alt+c)
+
+        <!--  cm-s-default -->
+        <!-- cm-s-monokai -->
+        <pre id="output-panel" class="CodeMirror cm-s-monokai"></pre>
+    </div>
+    <script src="/node_modules/codemirror/lib/codemirror.js"></script>
+    <script src="/node_modules/codemirror/addon/runmode/runmode.js"></script>
+    <!-- codemirror mode -->
+    <script src="/node_modules/codemirror/mode/htmlembedded/htmlembedded.js"></script>
+    <script src="/node_modules/codemirror/mode/javascript/javascript.js"></script>
+    <script src="/node_modules/codemirror/mode/css/css.js"></script>
+    <script src="/node_modules/codemirror/mode/sass/sass.js"></script>
+    <script src="/node_modules/codemirror/mode/markdown/markdown.js"></script>
+    <script src="/node_modules/codemirror/mode/php/php.js"></script>
+    <script src="/node_modules/codemirror/mode/python/python.js"></script>
+    <script src="/node_modules/codemirror/mode/clike/clike.js"></script>
+    <script src="/node_modules/codemirror/mode/ruby/ruby.js"></script>
+    <script src="/node_modules/codemirror/mode/jade/jade.js"></script>
+    <script src="/node_modules/codemirror/mode/sql/sql.js"></script>
+    <script src="/node_modules/codemirror/mode/swift/swift.js"></script>
+    <script src="/node_modules/codemirror/mode/xml/xml.js"></script>
+    <script src="/node_modules/codemirror/mode/lua/lua.js"></script>
+    <!-- /codemirror mode -->
+
+    <script src="/node_modules/codemirror/keymap/sublime.js"></script>
+    <script src="/node_modules/clipboard/dist/clipboard.js"></script>
+
+    
+    <script src="/node_modules/jquery/dist/jquery.js"></script>
+
+    <!-- select2 -->
+    <link rel="stylesheet" href="/node_modules/select2/dist/css/select2.css">
+    <script src="/node_modules/select2/dist/js/select2.js"></script>
+
+    <script src="/node_modules/jquery.hotkeys/jquery.hotkeys.js"></script>    
+
+    <script src="/js/app/app.js"></script>
+</body>
+
+</html>
