@@ -17,11 +17,14 @@ fis.config.merge({
             reg: /\/(map.json)/i,
             release: false
         }, {
-            // node_modules 目录下，还有 node_modules 的，哪些深沉目录就不要输出了
+            // node_modules 目录下，还有 node_modules 的，那些深层目录就不要输出了
             reg: /\/(node_modules)\/([^\\\/<>?:\|\*"])+\/(node_modules|test)\/.*/i,
             release: false
         }, {
             reg: /\/(node_modules)\/(codemirror|jquery\.hotkeys)\/.*/i,
+            release: '/$&'
+        }, {
+            reg: /\/(node_modules)\/js.cookie\/src\/.*/i,
             release: '/$&'
         }, {
             // 仅输出 node_modules/xxx/dist|build 目录，其他的不需要

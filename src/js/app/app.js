@@ -1,11 +1,11 @@
 new function(window, document, CodeMirror, Clipboard) {
 
-    var lang = 'text/html'
+    var lang = Cookies.get().lang || 'text/html'
     var langSelect = $('select[data-provide="select2"]')
     var editor = CodeMirror.fromTextArea($("#code-panel")[0], {
         // value: value,
         lineNumbers: true,
-        mode: "text/html",
+        mode: lang,
         keyMap: "sublime",
         theme: "monokai"
     });
@@ -25,9 +25,16 @@ new function(window, document, CodeMirror, Clipboard) {
     new Clipboard('#btn-copy')
 
     langSelect.change(function() {
-        lang = $(this).val()
+        var val = $(this).val()
+        if(!val){
+            return
+        }
+        lang = val
         editor.setOption("mode", lang)
         doHighLight()
+
+        // save setting
+        Cookies.set('lang', lang, { expires: 365 });
 
         setTimeout(function() {
             editor.focus()
@@ -35,9 +42,13 @@ new function(window, document, CodeMirror, Clipboard) {
         }, 15)
 
     })
+
     langSelect.select2({
         width: '7em'
     })
+
+    // restore setting
+    Cookies.get().lang && langSelect.val(lang).trigger('change');
 
     // 可能是代码编辑器也监听了按钮，导致监听键盘事件不正常执行
     // document 与 editor 分开监听事件
