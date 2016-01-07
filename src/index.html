@@ -1,23 +1,25 @@
 <!DOCTYPE html>
-<html>
+<html class="h100">
 
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="renderer" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
     <title>Code highlight Copier | 文本代码拷贝为高亮富文本</title>
     <link rel="stylesheet" href="node_modules/codemirror/lib/codemirror.css">
     <link rel="stylesheet" href="node_modules/codemirror/theme/monokai.css">
     <link rel="stylesheet" href="css/app/app.less">
 </head>
 
-<body>
-    <div>
-        <textarea id="code-panel" class="CodeMirror cm-s-monokai">
-<h1>Talk is cheap, show me the code. (Linus Torvalds)</h1>
+<body class="h100">
+    <div class="wrap h100">
+        <div class="editor">
+        <textarea id="code-panel" class="CodeMirror cm-s-monokai"><h1>Talk is cheap, show me the code. (Linus Torvalds)</h1>
 Here is Editor, under the editor ,there are the rich text code </textarea>
-        <br>
         
-        &nbsp;programming language:
+        <div class="action-bar">
+        programming language:
         <select data-provide="select2">
             <option value="text/html">HTML</option>
             <option value="text/javascript">JavaScript</option>
@@ -40,6 +42,9 @@ Here is Editor, under the editor ,there are the rich text code </textarea>
 
         &nbsp;&nbsp;
         <button data-clipboard-target="#output-panel" id="btn-copy">Copy Highlight Code</button>(Alt+c)
+        </div>
+
+        </div>
 
         <!--  cm-s-default -->
         <!-- cm-s-monokai -->
