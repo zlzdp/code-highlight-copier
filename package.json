@@ -1,0 +1,21 @@
+{
+    "name": "code-highlight-copier",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "dependencies": {
+        "anywhere": "^1.2.0",
+        "fis": "^1.9.39",
+        "fis-parser-less-2.x": "^0.1.4",
+        "fis-postprocessor-cssprefixer": "0.0.3",
+        "http-server": "^0.8.5"
+    },
+    "devDependencies": {},
+    "scripts": {
+        "start": "start /b if not exist build md build & start /b fis release -f ./fis-conf.js -r ./src -wd ./build & http-server ./build -p 8080 -s",
+        "dist": "rd /s /q dist & set FIS_DEBUG=FALSE& fis release -f ./fis-conf.js -r ./src -D -mopd ./dist",
+        "setup": "cd src & npm install & cd .. & npm install"
+    },
+    "author": "xiaodengzi",
+    "license": "ISC"
+}
